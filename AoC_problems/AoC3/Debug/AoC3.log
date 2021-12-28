@@ -1,0 +1,5 @@
+﻿  AoC3.cpp
+E:\my\Code\AdventOfCode2021\AoC25\AoC3\AoC3.cpp(17,26): warning C4018: '<': signed/unsigned mismatch
+E:\my\Code\AdventOfCode2021\AoC25\AoC3\AoC3.cpp(24,30): warning C4018: '<': signed/unsigned mismatch
+E:\my\Code\AdventOfCode2021\AoC25\AoC3\AoC3.cpp(93): warning C4715: 'ResultString': not all control paths return a value
+  AoC3.vcxproj -> E:\my\Code\AdventOfCode2021\AoC25\Debug\AoC03.exe
