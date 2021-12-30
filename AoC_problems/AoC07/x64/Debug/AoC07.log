@@ -1,0 +1,6 @@
+﻿  AoC07.cpp
+E:\my\Code\AdventOfCode2021\AoC_problems\AoC07\AoC07.cpp(11,12): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\my\Code\AdventOfCode2021\AoC_problems\AoC07\AoC07.cpp(27,16): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+E:\my\Code\AdventOfCode2021\AoC_problems\AoC07\AoC07.cpp(32,17): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+E:\my\Code\AdventOfCode2021\AoC_problems\AoC07\AoC07.cpp(68,38): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  AoC07.vcxproj -> E:\my\Code\AdventOfCode2021\AoC_problems\x64\Debug\AoC07.exe
