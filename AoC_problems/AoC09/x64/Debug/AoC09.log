@@ -1,0 +1,5 @@
+﻿  AoC09.cpp
+E:\my\Code\AdventOfCode2021\AoC_problems\AoC09\AoC09.cpp(31,28): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\my\Code\AdventOfCode2021\AoC_problems\AoC09\AoC09.cpp(79,34): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\my\Code\AdventOfCode2021\AoC_problems\AoC09\AoC09.cpp(79,34): warning C4267: 'initializing': conversion from 'size_t' to 'const int', possible loss of data
+  AoC09.vcxproj -> E:\my\Code\AdventOfCode2021\AoC_problems\x64\Debug\AoC09.exe
