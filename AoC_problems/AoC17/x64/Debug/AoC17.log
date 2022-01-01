@@ -1,0 +1,3 @@
+﻿  AoC17.cpp
+E:\my\Code\AdventOfCode2021\AoC_problems\AoC17\AoC17.cpp(16,16): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  AoC17.vcxproj -> E:\my\Code\AdventOfCode2021\AoC_problems\x64\Debug\AoC17.exe
