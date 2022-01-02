@@ -1,2 +1,4 @@
 ﻿  AoC16.cpp
+E:\my\Code\AdventOfCode2021\AoC_problems\AoC16\AoC16.cpp(161): warning C4715: 'ProcessCalculation': not all control paths return a value
+E:\my\Code\AdventOfCode2021\AoC_problems\AoC16\AoC16.cpp(231): warning C4715: 'ProcessInput': not all control paths return a value
   AoC16.vcxproj -> E:\my\Code\AdventOfCode2021\AoC_problems\x64\Debug\AoC16.exe
