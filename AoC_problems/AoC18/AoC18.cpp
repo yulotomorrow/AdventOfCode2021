@@ -5,7 +5,10 @@
 #include <set>
 #include <list>
 #include <queue>
+#include <deque>
 using namespace std;
+
+// Split only happen after all explosion! But one split only generate at most one explosion
 
 list<pair<int, int>> InputProcess(string line)
 {
@@ -32,7 +35,7 @@ list<pair<int, int>> InputProcess(string line)
 void ReadInput(queue<list<pair<int, int>>>& addQueue)
 {
 	fstream fs;
-	fs.open("18test.txt");
+	fs.open("18input.txt");
 	string line;
 	list<pair<int, int>> levelList;
 	while (getline(fs, line))
@@ -43,42 +46,75 @@ void ReadInput(queue<list<pair<int, int>>>& addQueue)
 	fs.close();
 }
 
+void ReadInputV2(deque<list<pair<int, int>>>& addQueueV2)
+{
+	fstream fs;
+	fs.open("18input.txt");
+	string line;
+	list<pair<int, int>> levelList;
+	while (getline(fs, line))
+	{
+		levelList = InputProcess(line);
+		addQueueV2.push_back(levelList);
+	}
+	fs.close();
+}
+
+void BracketExplosion(list<pair<int, int>>::iterator& mainItr, list<pair<int, int>>& processList)
+{
+	int temp_front = (*mainItr).second;
+	mainItr = processList.erase(mainItr);
+	int temp_back = (*mainItr).second;
+	--((*mainItr).first);
+	(*mainItr).second = 0;
+	++mainItr;
+	if (mainItr != processList.end())
+	{
+		(*mainItr).second += temp_back;
+	}
+	--mainItr;
+	if (mainItr != processList.begin())
+	{
+		--mainItr;
+		(*mainItr).second += temp_front;
+	}
+}
+
+void BracketSplit(list<pair<int, int>>::iterator& mainItr, list<pair<int, int>>& processList)
+{
+	int temp_front = floor((*mainItr).second / 2.0);
+	int temp_back = ceil((*mainItr).second / 2.0);
+	++((*mainItr).first);
+	(*mainItr).second = temp_back;
+	processList.insert(mainItr, { (*mainItr).first, temp_front });
+	--mainItr;
+}
+
 void BracketReduction(list<pair<int, int>>& processList)
 {
 	auto mainItr = processList.begin();
+	auto& itr = mainItr;
 	// iterator follows the left side, move to right
+	while (mainItr != processList.end())
+	{
+		if ((*mainItr).first >= 5)
+		{
+			BracketExplosion(itr, processList);
+		}
+		else
+			++mainItr;
+	}
+	mainItr = processList.begin();
 	while (mainItr != processList.end()) 
 	{
-		if ((*mainItr).first > 4)
+		if ((*mainItr).second > 9)
 		{
-		int temp_front = (*mainItr).second;
-		mainItr = processList.erase(mainItr);
-		int temp_back = (*mainItr).second;
-		--(*mainItr).first;
-		(*mainItr).second = 0;
-		++mainItr;
-		if (mainItr != processList.end())
-		{
-			(*mainItr).second += temp_back;
+			BracketSplit(itr, processList);
+			if ((*mainItr).first >= 5)
+			{
+				BracketExplosion(itr, processList);
+			}
 		}
-		--mainItr;
-		if (mainItr != processList.begin())
-		{
-			--mainItr;
-			(*mainItr).second += temp_front;
-		}
-		}
-
-		else if ((*mainItr).second > 9)
-		{
-		int temp_front = floor((*mainItr).second / 2.0);
-		int temp_back = ceil((*mainItr).second / 2.0);
-		++(*mainItr).first;
-		(*mainItr).second = temp_back;
-		processList.insert(mainItr, { (*mainItr).first, temp_front });
-		--mainItr;
-		}
-
 		else
 			++mainItr;
 	}
@@ -114,7 +150,7 @@ void BracketScore(list<pair<int, int>>& processList)
 	}
 }
 
-void BracketAddition(queue<list<pair<int, int>>>& addQueue)
+int BracketAddition(queue<list<pair<int, int>>>& addQueue)
 {
 	int count = 0;
 	list<pair<int, int>> firstList = {};
@@ -139,7 +175,30 @@ void BracketAddition(queue<list<pair<int, int>>>& addQueue)
 		++count;
 	}
 	BracketScore(processList);
-	cout << (*processList.begin()).second << "\n";
+//	cout << (*processList.begin()).second << "\n";
+	return(*processList.begin()).second;
+}
+
+void MaxSumCalculation (const deque<list<pair<int, int>>>& addQueueV2)
+{
+	int maxSum = 0;
+	queue<list<pair<int, int>>> tempQueue = {};
+	queue<list<pair<int, int>>>& q = tempQueue;
+	for(auto& a : addQueueV2)
+	{	
+		for(auto& b : addQueueV2)
+		{
+			q.push(a);
+			q.push(b);
+			int sum = BracketAddition(q);
+			if(sum > maxSum)
+			{
+				maxSum = sum;
+			}
+			q = {};
+		}
+	}
+	std::cout << maxSum << "\n";
 }
 
 int main()
@@ -149,10 +208,9 @@ int main()
 	ReadInput(addQueue);
 	BracketAddition(addQueue);
 
-
-	list<pair<int, int>> testL = { {1,1} };
-	list<pair<int, int>>& testList = testL;
-	BracketScore(testList);
-
+	deque<list<pair<int, int>>> additionQueueV2 = {};
+	deque<list<pair<int, int>>>& addQueueV2 = additionQueueV2;
+	ReadInputV2(addQueueV2);
+	MaxSumCalculation(addQueueV2);
 }
 

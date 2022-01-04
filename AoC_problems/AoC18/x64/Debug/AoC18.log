@@ -1,4 +1,4 @@
 ﻿  AoC18.cpp
-E:\my\Code\AdventOfCode2021\AoC_problems\AoC18\AoC18.cpp(74,18): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-E:\my\Code\AdventOfCode2021\AoC_problems\AoC18\AoC18.cpp(75,17): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\my\Code\AdventOfCode2021\AoC_problems\AoC18\AoC18.cpp(85,17): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\my\Code\AdventOfCode2021\AoC_problems\AoC18\AoC18.cpp(86,16): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
   AoC18.vcxproj -> E:\my\Code\AdventOfCode2021\AoC_problems\x64\Debug\AoC18.exe
