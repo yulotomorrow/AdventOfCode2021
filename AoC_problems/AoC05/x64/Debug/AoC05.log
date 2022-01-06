@@ -1,2 +1,3 @@
 ﻿  AoC05.cpp
+E:\my\Code\AdventOfCode2021\AoC_problems\AoC05\AoC05.cpp(177): warning C4715: 'TypeOfLine': not all control paths return a value
   AoC05.vcxproj -> E:\my\Code\AdventOfCode2021\AoC_problems\x64\Debug\AoC05.exe
